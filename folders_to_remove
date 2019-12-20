@@ -1,0 +1,4 @@
+./extensions/bin/
+./extensions/obj/
+./extensions-tests/bin/
+./extensions-tests/obj/
