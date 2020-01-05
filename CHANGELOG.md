@@ -1,3 +1,7 @@
+# v0.1.4
+## Changed
+* Fixed `private` modifier for shared configuration extenion method.
+
 # v0.1.3
 ## Added
 * String to GUID/Boolean conversion method.
