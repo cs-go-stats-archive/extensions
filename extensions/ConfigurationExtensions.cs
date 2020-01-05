@@ -6,7 +6,7 @@ namespace CSGOStats.Extensions.Extensions
 {
     public static class ConfigurationExtensions
     {
-        private static TSetting GetFromConfiguration<TSetting>(
+        public static TSetting GetFromConfiguration<TSetting>(
             this IConfigurationRoot configuration,
             string sectionName,
             Func<IConfiguration, TSetting> creatingFunctor)
