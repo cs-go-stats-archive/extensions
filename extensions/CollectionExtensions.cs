@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CSGOStats.Infrastructure.Extensions
+namespace CSGOStats.Extensions.Extensions
 {
     public static class CollectionExtensions
     {

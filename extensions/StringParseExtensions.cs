@@ -1,4 +1,4 @@
-﻿namespace CSGOStats.Infrastructure.Extensions
+﻿namespace CSGOStats.Extensions.Extensions
 {
     public static class StringParseExtensions
     {
@@ -10,5 +10,8 @@
 
         public static double Double(this string x) =>
             double.Parse(x);
+
+        public static bool Bool(this string x) =>
+            bool.Parse(x);
     }
 }

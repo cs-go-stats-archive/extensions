@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace CSGOStats.Infrastructure.Extensions.Tests
+namespace CSGOStats.Extensions.Extensions.Tests
 {
     public class CollectionExtensionTests
     {

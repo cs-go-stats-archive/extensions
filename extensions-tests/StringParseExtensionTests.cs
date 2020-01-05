@@ -3,11 +3,12 @@ using System.Globalization;
 using FluentAssertions;
 using Xunit;
 
-namespace CSGOStats.Infrastructure.Extensions.Tests
+namespace CSGOStats.Extensions.Extensions.Tests
 {
     public class StringParseExtensionTests
     {
         private const string WrongNumericValue = "Abcd";
+        private const string CorrectNumericValue = "12345";
 
         private static readonly Random Random = new Random();
 
@@ -56,6 +57,33 @@ namespace CSGOStats.Infrastructure.Extensions.Tests
 
             {
                 Record.Exception(() => WrongNumericValue.Long()).Should().BeOfType<FormatException>();
+            }
+        }
+
+        [Fact]
+        public void BoolParseTests()
+        {
+            {
+                var value = Random.NextDouble() > .5;
+                var parsed = value.ToString(CultureInfo.DefaultThreadCurrentCulture).Bool();
+                parsed.Should().Be(value);
+            }
+
+            {
+                const string value = "True";
+                var parsed = value.Bool();
+                parsed.Should().BeTrue();
+            }
+
+            {
+                const string value = "true";
+                var parsed = value.Bool();
+                parsed.Should().BeTrue();
+            }
+
+            {
+                Record.Exception(() => WrongNumericValue.Bool()).Should().BeOfType<FormatException>();
+                Record.Exception(() => CorrectNumericValue.Bool()).Should().BeOfType<FormatException>();
             }
         }
     }
