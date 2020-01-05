@@ -1,6 +1,14 @@
+# v0.1.3
+## Added
+* String to GUID/Boolean conversion method.
+* Date/time shared methods.
+* Settings extraction methods.
+## Changed
+* `Infrastructure` to `Extensions` namespace root.
+
 # v0.1.2
 ## Added
-* String to Int/Long/Double convertation methods.
+* String to Int/Long/Double conversion methods.
 
 # v0.1.1
 ## Changed
