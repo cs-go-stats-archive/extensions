@@ -1,15 +1,11 @@
-docker-compose -p cs-go-stats up --no-recreate -d
+category=extensions
+service=extensions
+version=0.1.4
 
-rm -rf `cat folders_to_remove | sed 's/\\r//g'`
+cd ./../../automation_scripts
 
-rm -f ./../../../target/extensions/CSGOStats.Extensions.Extensions*.nupkg && 
-	dotnet restore -v m ./extensions.sln && 
-	dotnet build -v diag -c Release --no-incremental ./extensions.sln && 
-	dotnet test -v n ./extensions.sln && 
-	dotnet pack -v m -c Release -o ./../../../target/extensions/ ./extensions.sln && 
-	dotnet nuget push ./../../../target/extensions/CSGOStats.Extensions.Extensions*.nupkg -k b8e0f6c7-0f8d-3d80-83dc-eccb59ee6083 --skip-duplicate -n true -t 30 -s http://localhost:8081/repository/nuget-default/
+#<project_context> <repository>
+./verify.sh $category $service
 
-rm -f ./../../../target/extensions/CSGOStats.Extensions.Extensions*.nupkg
-
-echo ''
-read -p 'Run finished. Pressing any key will terminate this script.'
+#<project_context> <project_name> <package_version> <pack_nuget> <pack_objects> <pack_docker>
+./push.sh $category $service $version yes no no
